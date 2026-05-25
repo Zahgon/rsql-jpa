@@ -35,18 +35,18 @@ import java.util.logging.Logger;
  */
 public class SimpleMapper implements Mapper {
 
-	private static final Logger LOG = Logger.getLogger(SimpleMapper.class.getName());
+    private static final Logger LOG = Logger.getLogger(SimpleMapper.class.getName());
 
     private Map<Class<?>, Map<String, String>> mapping;
-
 
     /**
      * Construct new <tt>SimpleMapper</tt> with zero initial capacity of the
      * entities map.
      */
     public SimpleMapper() {
-    	this(0);
+        this(0);
     }
+
     /**
      * Construct new <tt>SimpleMapper</tt> with the specified initial capacity
      * of the entities map.
@@ -58,19 +58,8 @@ public class SimpleMapper implements Mapper {
     }
 
     public String translate(String selector, Class<?> entityClass) {
-        if (mapping.isEmpty()) return selector;
-
-        Map<String, String> map = mapping.get(entityClass);
-        String property = (map != null) ? map.get(selector) : null;
-
-        if (property != null) {
-        	LOG.log(Level.INFO, "Found mapping {0} -> {1}" , new Object[] {selector, property});
-            return property;
-        }
-
-        return selector;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     /**
      * Add selectors -> property names mapping for given entity class.
@@ -79,7 +68,7 @@ public class SimpleMapper implements Mapper {
      * @param mapping mapping of selectors to property names
      */
     public void addMapping(Class<?> entityClass, Map<String, String> mapping) {
-        this.mapping.put(entityClass, mapping);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -90,7 +79,7 @@ public class SimpleMapper implements Mapper {
      * @param property Name of corresponding entity's property.
      */
     public void addMapping(Class<?> entityClass, String selector, String property) {
-        mapping.get(entityClass).put(selector, property);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -98,7 +87,7 @@ public class SimpleMapper implements Mapper {
      * @return The current mapping of all entities.
      */
     public Map<Class<?>, Map<String, String>> getMapping() {
-        return mapping;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -107,7 +96,6 @@ public class SimpleMapper implements Mapper {
      * @param Mapping {entity class -> {selector -> property}}
      */
     public void setMapping(Map<Class<?>, Map<String, String>> mapping) {
-        this.mapping = mapping;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

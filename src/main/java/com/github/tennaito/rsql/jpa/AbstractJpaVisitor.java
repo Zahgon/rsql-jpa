@@ -24,10 +24,8 @@
 package com.github.tennaito.rsql.jpa;
 
 import javax.persistence.EntityManager;
-
 import com.github.tennaito.rsql.builder.BuilderTools;
 import com.github.tennaito.rsql.builder.SimpleBuilderTools;
-
 import cz.jirutka.rsql.parser.ast.RSQLVisitor;
 
 /**
@@ -42,51 +40,48 @@ import cz.jirutka.rsql.parser.ast.RSQLVisitor;
  */
 public abstract class AbstractJpaVisitor<T, E> implements RSQLVisitor<T, EntityManager> {
 
-	protected Class<E> entityClass;
+    protected Class<E> entityClass;
 
-	protected BuilderTools builderTools;
+    protected BuilderTools builderTools;
 
-	/**
-	 * Construtor with template varargs for entityClass discovery.
-	 *
-	 * @param e not for usage
-	 */
-	public AbstractJpaVisitor(E... e) {
-		// getting class from template... :P
-		if (e.length == 0) {
-			entityClass = (Class<E>)e.getClass().getComponentType();
-		} else {
-			entityClass = (Class<E>) e[0].getClass();
-		}		
-	}
-
-	/**
-	 * Set the entity class explicitly, needed when the entity type is itself a generic
-	 *
-	 * @param clazz Class to set.
+    /**
+     * Construtor with template varargs for entityClass discovery.
+     *
+     * @param e not for usage
      */
-	public void setEntityClass(Class<E> clazz) {
-		entityClass = clazz;
-	}
+    public AbstractJpaVisitor(E... e) {
+        // getting class from template... :P
+        if (e.length == 0) {
+            entityClass = (Class<E>) e.getClass().getComponentType();
+        } else {
+            entityClass = (Class<E>) e[0].getClass();
+        }
+    }
 
-	/**
-	 * Get builder tools.
-	 *
-	 * @return BuilderTools.
-	 */
-	public BuilderTools getBuilderTools() {
-		if (this.builderTools == null) {
-			this.builderTools = new SimpleBuilderTools();
-		}
-		return this.builderTools;
-	}
+    /**
+     * Set the entity class explicitly, needed when the entity type is itself a generic
+     *
+     * @param clazz Class to set.
+     */
+    public void setEntityClass(Class<E> clazz) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/**
-	 * Set a predicate strategy.
-	 *
-	 * @param delegate PredicateBuilderStrategy.
-	 */
-	public void setBuilderTools(BuilderTools delegate) {
-		this.builderTools = delegate;
-	}
+    /**
+     * Get builder tools.
+     *
+     * @return BuilderTools.
+     */
+    public BuilderTools getBuilderTools() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    /**
+     * Set a predicate strategy.
+     *
+     * @param delegate PredicateBuilderStrategy.
+     */
+    public void setBuilderTools(BuilderTools delegate) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

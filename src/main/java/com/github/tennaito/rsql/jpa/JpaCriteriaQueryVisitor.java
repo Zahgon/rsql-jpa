@@ -25,11 +25,9 @@ package com.github.tennaito.rsql.jpa;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.From;
-
 import cz.jirutka.rsql.parser.ast.AndNode;
 import cz.jirutka.rsql.parser.ast.ComparisonNode;
 import cz.jirutka.rsql.parser.ast.OrNode;
@@ -44,59 +42,49 @@ import cz.jirutka.rsql.parser.ast.RSQLVisitor;
  *
  * @param <T> Entity type
  */
-public class JpaCriteriaQueryVisitor<T> extends AbstractJpaVisitor<CriteriaQuery<T>, T>  implements RSQLVisitor<CriteriaQuery<T>, EntityManager> {
+public class JpaCriteriaQueryVisitor<T> extends AbstractJpaVisitor<CriteriaQuery<T>, T> implements RSQLVisitor<CriteriaQuery<T>, EntityManager> {
 
-	private static final Logger LOG = Logger.getLogger(JpaCriteriaQueryVisitor.class.getName());
+    private static final Logger LOG = Logger.getLogger(JpaCriteriaQueryVisitor.class.getName());
 
-	private final JpaPredicateVisitor<T> predicateVisitor;
-	
-	/**
-	 * Construtor with template varargs for entityClass discovery.
-	 *
-	 * @param t not for usage
-	 */
-	public JpaCriteriaQueryVisitor(T... t) {
-		super(t);
-		this.predicateVisitor = new JpaPredicateVisitor<T>(t);
-	}
+    private final JpaPredicateVisitor<T> predicateVisitor;
 
-	/**
-	 * Get the Predicate Visitor instance.
-	 * 
-	 * @return Return the Predicate Visitor.
-	 */
-	protected JpaPredicateVisitor<T> getPredicateVisitor() {
-		this.predicateVisitor.setBuilderTools(this.getBuilderTools());
-		return this.predicateVisitor;
-	}
+    /**
+     * Construtor with template varargs for entityClass discovery.
+     *
+     * @param t not for usage
+     */
+    public JpaCriteriaQueryVisitor(T... t) {
+        super(t);
+        this.predicateVisitor = new JpaPredicateVisitor<T>(t);
+    }
 
-	/* (non-Javadoc)
+    /**
+     * Get the Predicate Visitor instance.
+     *
+     * @return Return the Predicate Visitor.
+     */
+    protected JpaPredicateVisitor<T> getPredicateVisitor() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
+
+    /* (non-Javadoc)
 	 * @see cz.jirutka.rsql.parser.ast.RSQLVisitor#visit(cz.jirutka.rsql.parser.ast.AndNode, java.lang.Object)
 	 */
-	public CriteriaQuery<T> visit(AndNode node, EntityManager entityManager) {
-		LOG.log(Level.INFO, "Creating CriteriaQuery for AndNode: {0}", node);
-		CriteriaQuery<T> criteria = entityManager.getCriteriaBuilder().createQuery(entityClass);
-    	From root = criteria.from(entityClass);
-		return criteria.where(this.getPredicateVisitor().defineRoot(root).visit(node, entityManager));
-	}
+    public CriteriaQuery<T> visit(AndNode node, EntityManager entityManager) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see cz.jirutka.rsql.parser.ast.RSQLVisitor#visit(cz.jirutka.rsql.parser.ast.OrNode, java.lang.Object)
 	 */
-	public CriteriaQuery<T> visit(OrNode node, EntityManager entityManager) {
-		LOG.log(Level.INFO, "Creating CriteriaQuery for OrNode: {0}", node);
-		CriteriaQuery<T> criteria = entityManager.getCriteriaBuilder().createQuery(entityClass);
-    	From root = criteria.from(entityClass);
-		return criteria.where(this.getPredicateVisitor().defineRoot(root).visit(node, entityManager));
-	}
+    public CriteriaQuery<T> visit(OrNode node, EntityManager entityManager) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see cz.jirutka.rsql.parser.ast.RSQLVisitor#visit(cz.jirutka.rsql.parser.ast.ComparisonNode, java.lang.Object)
 	 */
-	public CriteriaQuery<T> visit(ComparisonNode node, EntityManager entityManager) {
-		LOG.log(Level.INFO, "Creating CriteriaQuery for ComparisonNode: {0}", node);
-    	CriteriaQuery<T> criteria = entityManager.getCriteriaBuilder().createQuery(entityClass);
-    	From root = criteria.from(entityClass);
-    	return criteria.where(this.getPredicateVisitor().defineRoot(root).visit(node, entityManager));
-	}
+    public CriteriaQuery<T> visit(ComparisonNode node, EntityManager entityManager) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }

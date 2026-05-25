@@ -34,13 +34,13 @@ package com.github.tennaito.rsql.misc;
 public class ArgumentFormatException extends RuntimeException {
 
     /**
-	 * SERIAL UID
-	 */
-	private static final long serialVersionUID = 521849874508654920L;
-	
-	private final String argument;
-    private final Class<?> propertyType;
+     * SERIAL UID
+     */
+    private static final long serialVersionUID = 521849874508654920L;
 
+    private final String argument;
+
+    private final Class<?> propertyType;
 
     /**
      * Construct an <tt>ArgumentFormatException</tt> with specified argument
@@ -55,12 +55,11 @@ public class ArgumentFormatException extends RuntimeException {
         this.propertyType = propertyType;
     }
 
-
     public String getArgument() {
-        return argument;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Class<?> getPropertyType() {
-        return propertyType;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

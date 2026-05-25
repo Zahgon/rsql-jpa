@@ -39,56 +39,51 @@ import com.github.tennaito.rsql.misc.SimpleMapper;
  */
 public class SimpleBuilderTools implements BuilderTools {
 
-	private Mapper mapper;
-	private ArgumentParser argumentParser;
-	private PredicateBuilderStrategy delegate;
+    private Mapper mapper;
 
+    private ArgumentParser argumentParser;
 
-	/* (non-Javadoc)
+    private PredicateBuilderStrategy delegate;
+
+    /* (non-Javadoc)
 	 * @see br.tennaito.rsql.builder.BuilderTools#setPropertiesMapper(br.tennaito.rsql.misc.Mapper)
 	 */
-	public void setPropertiesMapper(Mapper mapper) {
-		this.mapper = mapper;
-	}
+    public void setPropertiesMapper(Mapper mapper) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see br.tennaito.rsql.builder.BuilderTools#setArgumentParser(br.tennaito.rsql.misc.ArgumentParser)
 	 */
-	public void setArgumentParser(ArgumentParser argumentParser) {
-		this.argumentParser = argumentParser;
-	}
+    public void setArgumentParser(ArgumentParser argumentParser) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see br.tennaito.rsql.builder.BuilderTools#setPredicateBuilder(br.tennaito.rsql.jpa.PredicateBuilderStrategy)
 	 */
-	public void setPredicateBuilder(PredicateBuilderStrategy predicateStrategy) {
-		this.delegate = predicateStrategy;
-	}
+    public void setPredicateBuilder(PredicateBuilderStrategy predicateStrategy) {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see br.tennaito.rsql.builder.BuilderTools#getPropertiesMapper()
 	 */
-	public Mapper getPropertiesMapper() {
-		if (this.mapper == null) {
-			this.mapper = new SimpleMapper();
-		}
-		return this.mapper;
-	}
+    public Mapper getPropertiesMapper() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see br.tennaito.rsql.builder.BuilderTools#getArgumentParser()
 	 */
-	public ArgumentParser getArgumentParser() {
-		if (this.argumentParser == null) {
-			this.argumentParser = new DefaultArgumentParser();
-		}
-		return this.argumentParser;
-	}
+    public ArgumentParser getArgumentParser() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 
-	/* (non-Javadoc)
+    /* (non-Javadoc)
 	 * @see br.tennaito.rsql.builder.BuilderTools#getPredicateBuilder()
 	 */
-	public PredicateBuilderStrategy getPredicateBuilder() {
-		return this.delegate;
-	}
+    public PredicateBuilderStrategy getPredicateBuilder() {
+        throw new UnsupportedOperationException("STUB: not implemented");
+    }
 }
